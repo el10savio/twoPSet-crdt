@@ -11,7 +11,8 @@ import (
 )
 
 var (
-	// TwoPSet ...
+	// TwoPSet is the 2PSet
+	// data structure initialized
 	TwoPSet twopset.TwoPSet
 )
 

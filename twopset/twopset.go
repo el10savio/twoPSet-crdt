@@ -11,10 +11,13 @@ import (
 // merge multiple TwoPSets together and a utility function to clear a TwoPSet used in tests
 
 // TwoPSet is the TwoPSet CRDT data type
+// It is implemented by combining two GSets,
+// One to store the values added & another
+// to store the values removed
 type TwoPSet struct {
-	// Add ...
+	// Add is a GSet to store the values added
 	Add gset.GSet `json:"add"`
-	// Remove ...
+	// Remove is a GSet to store the values removed
 	Remove gset.GSet `json:"remove"`
 }
 
@@ -70,7 +73,7 @@ func (twopset TwoPSet) List() []string {
 	return resultGSet.Set
 }
 
-// Delete ...
+// Delete removes an entry from the GSET
 func Delete(gset gset.GSet, value string) gset.GSet {
 	for index, element := range gset.Set {
 		if element == value {

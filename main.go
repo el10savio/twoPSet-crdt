@@ -13,7 +13,8 @@ import (
 )
 
 const (
-	// PORT ...
+	// PORT is the 2PSet
+	// server port
 	PORT = "8080"
 )
 

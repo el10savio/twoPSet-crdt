@@ -7,7 +7,7 @@ import (
 	log "github.com/sirupsen/logrus"
 )
 
-// Remove is the HTTP handler used to append
+// Remove is the HTTP handler used to remove
 // values to the TwoPSet node in the server
 func Remove(w http.ResponseWriter, r *http.Request) {
 	var err error
@@ -15,7 +15,7 @@ func Remove(w http.ResponseWriter, r *http.Request) {
 	// Obtain the value from URL params
 	value := mux.Vars(r)["value"]
 
-	// Addition the given value to our stored TwoPSet
+	// Remove the given value to our stored TwoPSet
 	TwoPSet, err = TwoPSet.Removal(value)
 	if err != nil {
 		log.WithFields(log.Fields{"error": err}).Error("failed to remove value")
@@ -24,9 +24,9 @@ func Remove(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// DEBUG log in the case of success indicating
-	// the new TwoPSet and the value appended
+	// the new TwoPSet and the value removed
 	log.WithFields(log.Fields{
-		"set":   TwoPSet.Remove,
+		"set":   TwoPSet,
 		"value": value,
 	}).Debug("successful twopset removal")
 

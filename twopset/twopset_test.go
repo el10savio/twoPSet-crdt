@@ -17,7 +17,7 @@ func init() {
 }
 
 // TestList checks the basic functionality of TwoPSet List()
-// List() should return all unique values appended to the TwoPSet
+// List() should return all unique values added to the TwoPSet
 func TestList(t *testing.T) {
 	twopset, _ = twopset.Addition("xx")
 
@@ -30,8 +30,8 @@ func TestList(t *testing.T) {
 }
 
 // TestList_UpdatedValue checks the functionality of TwoPSet List() when
-// multiple values are appended to TwoPSet it should return
-// all the unique values appended to the TwoPSet
+// multiple values are added to TwoPSet it should return
+// all the unique values added to the TwoPSet
 func TestList_UpdatedValue(t *testing.T) {
 	twopset, _ = twopset.Addition("xx")
 	twopset, _ = twopset.Addition("yy")
@@ -46,8 +46,8 @@ func TestList_UpdatedValue(t *testing.T) {
 }
 
 // TestList_RemoveValue checks the functionality of TwoPSet List() when
-// multiple values are appended to TwoPSet it should return
-// all the unique values appended to the TwoPSet
+// multiple values are added & removed to TwoPSet it should return
+// all the unique values finally present to the TwoPSet
 func TestList_RemoveValue(t *testing.T) {
 	twopset, _ = twopset.Addition("xx")
 	twopset, _ = twopset.Removal("xx")
@@ -62,8 +62,8 @@ func TestList_RemoveValue(t *testing.T) {
 }
 
 // TestList_RemoveEmpty checks the functionality of TwoPSet List() when
-// multiple values are appended to TwoPSet it should return
-// all the unique values appended to the TwoPSet
+// multiple values are removed to TwoPSet it should return
+// all the unique values finally present to the TwoPSet
 func TestList_RemoveEmpty(t *testing.T) {
 	twopset, _ = twopset.Removal("zz")
 
@@ -76,7 +76,7 @@ func TestList_RemoveEmpty(t *testing.T) {
 }
 
 // TestList_NoValue checks the functionality of TwoPSet List() when
-// no values are appended to TwoPSet, it should return
+// no values are added to TwoPSet, it should return
 // an empty string slice when the TwoPSet is empty
 func TestList_NoValue(t *testing.T) {
 	expectedValue := []string{}
@@ -88,7 +88,7 @@ func TestList_NoValue(t *testing.T) {
 }
 
 // TestAddition checks the basic functionality of TwoPSet Addition()
-// it should return the TwoPSet back when the append is successful
+// it should return the TwoPSet back when the addition is successful
 func TestAddition(t *testing.T) {
 	expectedValue := TwoPSet{Add: gset.GSet{[]string{"xx"}}, Remove: gset.GSet{[]string{}}}
 	actualValue, actualError := twopset.Addition("xx")
@@ -145,7 +145,7 @@ func TestRemoval_Duplicate(t *testing.T) {
 }
 
 // TestClear checks the basic functionality of TwoPSet Clear()
-// utility function it clears all the values in a TwoPSet set
+// utility function it clears all the values in a TwoPSet
 func TestClear(t *testing.T) {
 	twopset, _ = twopset.Addition("xx1")
 	twopset, _ = twopset.Addition("xx2")

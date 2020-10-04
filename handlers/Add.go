@@ -15,7 +15,7 @@ func Add(w http.ResponseWriter, r *http.Request) {
 	// Obtain the value from URL params
 	value := mux.Vars(r)["value"]
 
-	// Addition the given value to our stored TwoPSet
+	// Add the given value to our stored TwoPSet
 	TwoPSet, err = TwoPSet.Addition(value)
 	if err != nil {
 		log.WithFields(log.Fields{"error": err}).Error("failed to add value")
@@ -24,11 +24,11 @@ func Add(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// DEBUG log in the case of success indicating
-	// the new TwoPSet and the value appended
+	// the new TwoPSet and the value added
 	log.WithFields(log.Fields{
-		"set":   TwoPSet.Add,
+		"set":   TwoPSet,
 		"value": value,
-	}).Debug("successful twopset append")
+	}).Debug("successful twopset addition")
 
 	// Return HTTP 200 OK in the case of success
 	w.WriteHeader(http.StatusOK)
